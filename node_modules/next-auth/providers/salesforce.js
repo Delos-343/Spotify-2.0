@@ -6,13 +6,16 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = Salesforce;
 
 function Salesforce(options) {
+  const {
+    issuer = "https://login.salesforce.com"
+  } = options;
   return {
     id: "salesforce",
     name: "Salesforce",
     type: "oauth",
-    authorization: "https://login.salesforce.com/services/oauth2/authorize?display=page",
-    token: "https://login.salesforce.com/services/oauth2/token",
-    userinfo: "https://login.salesforce.com/services/oauth2/userinfo",
+    authorization: `${issuer}/services/oauth2/authorize?display=page`,
+    token: `${issuer}/services/oauth2/token`,
+    userinfo: `${issuer}/services/oauth2/userinfo`,
 
     profile(profile) {
       return {

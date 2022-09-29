@@ -18,7 +18,7 @@ function Pipedrive(options) {
       data: profile
     }) => {
       return {
-        id: profile.id,
+        id: String(profile.id),
         name: profile.name,
         email: profile.email,
         image: profile.icon_url
